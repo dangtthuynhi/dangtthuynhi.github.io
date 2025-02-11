@@ -21,17 +21,28 @@ function init() {
   captureIndex = 0;
 
   // create a large number of slightly complex vector shapes, and give them random positions and velocities:
-		for (var i = 0; i < 100; i++) {
-			var heart = new createjs.Shape();
-			heart.graphics.beginFill(createjs.Graphics.getHSL(Math.random() * 30 - 45, 100, 50 + Math.random() * 30));
-			heart.graphics.moveTo(0, -12).curveTo(1, -20, 8, -20).curveTo(16, -20, 16, -10).curveTo(16, 0, 0, 12);
-			heart.graphics.curveTo(-16, 0, -16, -10).curveTo(-16, -20, -8, -20).curveTo(-1, -20, 0, -12);
-			heart.y = -100;
+  for (var i = 0; i < 100; i++) {
+    var heart = new createjs.Shape();
+    heart.graphics.beginFill(createjs.Graphics.getHSL(Math.random() * 30 - 45, 100, 50 + Math.random() * 30));
+    heart.graphics.moveTo(0, -12).curveTo(1, -20, 8, -20).curveTo(16, -20, 16, -10).curveTo(16, 0, 0, 12);
+    heart.graphics.curveTo(-16, 0, -16, -10).curveTo(-16, -20, -8, -20).curveTo(-1, -20, 0, -12);
+    heart.y = -100;
 
-			container.addChild(heart);
-		}
+    container.addChild(heart);
+  }
 
-  var text = new createjs.Text("Happy birthday my love!\nThank you for stealing my heart!\nYou deserve only the best, and I wish that for you Best wishes my love.", "bold 24px Arial", "#312");
+  var message = "My love,\n\n" +
+    "This Valentine’s Day, I just want to say how lucky I am to have you by my side. \n" +
+    "With each passing day, I cherish and love you even more. \n" +
+    "You are the most special person in my life, the light that brightens my darkest days, \n" +
+    "and the simple joy that I always look forward to.\n\n" +
+    "Thank you for being with me, for loving me, for sharing every sweet moment together. \n" +
+    "No matter what happens, I want to hold your hand and walk through every challenge, \n" +
+    "building the most beautiful memories together.\n\n" +
+    "Wishing you a Valentine’s Day filled with love and happiness! I love you forever!";
+
+  var text = new createjs.Text("Happy Valentine!\n\n" + message, "bold 24px Arial", "#312");
+
   text.textAlign = "center";
   text.x = w / 2;
   text.y = h / 2 - text.getMeasuredLineHeight();
@@ -60,30 +71,31 @@ function tick(event) {
   captureContainer.addChild(container);
 
   // iterate through all the children and move them according to their velocity:
-		for (var i = 0; i < l; i++) {
-			var heart = container.getChildAt(i);
-			if (heart.y < -50) {
-				heart._x = Math.random() * w;
-				heart.y = h * (1 + Math.random()) + 50;
-				heart.perX = (1 + Math.random() * 2) * h;
-				heart.offX = Math.random() * h;
-				heart.ampX = heart.perX * 0.1 * (0.15 + Math.random());
-				heart.velY = -Math.random() * 2 - 1;
-				heart.scale = Math.random() * 2 + 1;
-				heart._rotation = Math.random() * 40 - 20;
-				heart.alpha = Math.random() * 0.75 + 0.05;
-				heart.compositeOperation = Math.random() < 0.33 ? "lighter" : "source-over";
-			}
-			var int = (heart.offX + heart.y) / heart.perX * Math.PI * 2;
-			heart.y += heart.velY * heart.scaleX / 2;
-			heart.x = heart._x + Math.cos(int) * heart.ampX;
-			heart.rotation = heart._rotation + Math.sin(int) * 30;
-		}
+  for (var i = 0; i < l; i++) {
+    var heart = container.getChildAt(i);
+    if (heart.y < -50) {
+      heart._x = Math.random() * w;
+      heart.y = h * (1 + Math.random()) + 50;
+      heart.perX = (1 + Math.random() * 2) * h;
+      heart.offX = Math.random() * h;
+      heart.ampX = heart.perX * 0.1 * (0.15 + Math.random());
+      heart.velY = -Math.random() * 2 - 1;
+      heart.scale = Math.random() * 2 + 1;
+      heart._rotation = Math.random() * 40 - 20;
+      heart.alpha = Math.random() * 0.75 + 0.05;
+      heart.compositeOperation = Math.random() < 0.33 ? "lighter" : "source-over";
+    }
+    var int = (heart.offX + heart.y) / heart.perX * Math.PI * 2;
+    heart.y += heart.velY * heart.scaleX / 2;
+    heart.x = heart._x + Math.cos(int) * heart.ampX;
+    heart.rotation = heart._rotation + Math.sin(int) * 30;
+  }
 
   captureContainer.updateCache("source-over");
 
   // draw the updates to stage:
   stage.update(event);
 }
+
 
 init();

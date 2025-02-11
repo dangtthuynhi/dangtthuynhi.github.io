@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday My Love</title>
-  <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1524180/codepen-template-1.0.css'><link rel="stylesheet" href="./heart.css">
+  <!-- <title>Happy Birthday My Love</title> -->
+  <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1524180/codepen-template-1.0.css'>
+  <link rel="stylesheet" href="./heart.css">
 
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div>
-	<canvas id="testCanvas" width="550" height="500"></canvas>
 
-</div>
-<iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586141806&color=%23ee9ca7&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/qu-c-annh-121514370" title="Quốc Anh" target="_blank" style="color: #cccccc; text-decoration: none;">Quốc Anh</a> · <a href="https://soundcloud.com/qu-c-annh-121514370/doi-loi-tinh-ca-official" title="Đôi Lời Tình Ca (#ĐLTC) - Hoàng Dũng  | Mashup Acoustic" target="_blank" style="color: #cccccc; text-decoration: none;">Đôi Lời Tình Ca (#ĐLTC) - Hoàng Dũng  | Mashup Acoustic</a></div>
+<body>
+  <!-- partial:index.partial.html -->
+  <div>
+    <canvas id="testCanvas" width="550" height="500"></canvas>
+
+  </div>
+  <!-- <iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586141806&color=%23ee9ca7&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+  <div
+    style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+    <a href="https://soundcloud.com/qu-c-annh-121514370" title="Quốc Anh" target="_blank"
+      style="color: #cccccc; text-decoration: none;">Quốc Anh</a> · <a
+      href="https://soundcloud.com/qu-c-annh-121514370/doi-loi-tinh-ca-official"
+      title="Đôi Lời Tình Ca (#ĐLTC) - Hoàng Dũng  | Mashup Acoustic" target="_blank"
+      style="color: #cccccc; text-decoration: none;">Đôi Lời Tình Ca (#ĐLTC) - Hoàng Dũng | Mashup Acoustic</a></div>
+  <iframe id="soundcloudPlayer" width="0" height="0" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/586141806">
+  </iframe> -->
+
+  <script src="https://w.soundcloud.com/player/api.js"></script>
   <script src='https://code.createjs.com/1.0.0/easeljs.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1524180/codepen-template-1.0.js'></script><script  src="./heart.js"></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1524180/codepen-template-1.0.js'></script>
+  <script src="./heart.js"></script>
+  <script>
+    var widget = SC.Widget(document.getElementById("soundcloudPlayer"));
+    document.addEventListener("click", function () {
+      widget.play();
+    });
+  </script>
 
 </body>
+
 </html>
